@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원 관리 프로그램</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class = "container">
+    <h1>회원 목록</h1>
+    
+    <button id="openAddModalBtn">회원 추가</button> <!-- 회원 추가 버튼 -->
+    
+    <table id="memberTable" border="1">
+        <thead>
+            <tr>
+                <th>회원 번호</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>생년월일</th>
+                <th>주소</th>
+                <th>결제일</th>
+                <th>등록반</th>
+                <th>연락처</th>
+                <th>수정</th>
+                <th>삭제</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 회원 정보가 여기에 동적으로 추가됩니다. -->
+        </tbody>
+    </table>
+
+    <br>
+    
+    <button id="downloadExcel">엑셀 다운로드</button> <!-- 엑셀 다운로드 버튼을 표 아래로 이동 -->
+
+    <input type="file" id="uploadExcel">
+</div>
+    <!-- 회원 추가를 위한 모달 창 -->
+    <div id="addMemberModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeAddModal">&times;</span>
+            <h2>회원 추가</h2>
+            <form id="memberForm">
+                <label for="memberId">회원 번호:</label>
+                <input type="text" id="memberId" required><br><br>
+
+                <label for="name">이름:</label>
+                <input type="text" id="name" required><br><br>
+
+                <label for="age">나이:</label>
+                <input type="number" id="age" required><br><br>
+
+                <label for="birthdate">생년월일:</label>
+                <input type="date" id="birthdate" required><br><br>
+
+                <label for="address">주소:</label>
+                <input type="text" id="address" required><br><br>
+
+                <label for="paymentDate">결제일:</label>
+                <input type="date" id="paymentDate" required><br><br>
+
+                <label for="class">등록반:</label>
+                <input type="text" id="class" required><br><br>
+
+                <label for="phoneNumber">연락처:</label>
+                <input type="tel" id="phoneNumber" required><br><br>
+
+                <button type="submit">회원 추가</button>
+            </form>
+        </div>
+    </div>
+
+     <!-- 회원 수정을 위한 모달 창 -->
+     <div id="editMemberModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="closeEditModal">&times;</span>
+            <h2>회원 수정</h2>
+            <form id="editMemberForm">
+                <input type="hidden" id="editMemberId">
+                
+                <label for="editName">이름:</label>
+                <input type="text" id="editName"><br><br>
+                
+                <label for="editAge">나이:</label>
+                <input type="number" id="editAge"><br><br>
+                
+                <label for="editBirthdate">생년월일:</label>
+                <input type="date" id="editBirthdate"><br><br>
+                
+                <label for="editAddress">주소:</label>
+                <input type="text" id="editAddress"><br><br>
+                
+                <label for="editPaymentDate">결제일:</label>
+                <input type="date" id="editPaymentDate"><br><br>
+                
+                <label for="editClass">등록반:</label>
+                <input type="text" id="editClass"><br><br>
+                
+                <label for="editPhoneNumber">연락처:</label>
+                <input type="tel" id="editPhoneNumber"><br><br>
+                
+                <button type="submit">회원 수정</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.9/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
